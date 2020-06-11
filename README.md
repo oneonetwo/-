@@ -25,7 +25,22 @@
 2. 写代码方式（新闻稿的方式）： 最关键的title写到上面，其他的私有函数，细节函数用一些子函数放在下面；
 3. 验证回文串125
 ```javascript
-
+function isPalindrome(str){
+    //以高层次主干逻辑为主， 像森林先枝干再叶子
+    //1. filter out number & char 2. reverse and compare 
+    //过滤非字母非数字
+    let filteredStr = _filterNonNumberAndChar(str);
+    //反转字符串
+    let reversedStr = _reverseStr(filteredStr);
+   
+    return reversedStr.toLowerCase() === str.toLowerCase();
+}
+function _filterNonNumberAndChar(str){
+    return str.replace(/[^A-Za-z0-9]/g,'');
+}
+function _reverseStr(str){
+    return str.split('').reverse().join('');
+}
 
 ```
 
