@@ -44,7 +44,7 @@ function _reverseStr(str){
 
 ```
 ## [时间复杂度](https://www.zhihu.com/question/21387264)  空间复杂度
-![时间复杂度曲线图](https://static.prnasia.com/pro/gift/obiaoge.png)
+<img src="https://static.prnasia.com/pro/gift/obiaoge.png" width="60%" alt="时间复杂度曲线图" title="时间复杂度曲线图" />   
 #### Big O notation
 1. O(1): Constant Complexity 常数复杂度
 2. O(logn): Logarithmic Complexity 对数复杂度
@@ -88,10 +88,10 @@ function fib(n){
     - 例子Fib(6),
         - 第一现象： 每多展开一层，运行的节点数就是上面一层的两倍；第二层2节点，第三层4节点，第四层8个节点...；所有每个节点数也就是执行的次数是按照指数级递增的；最后就是变成 2^n；
         - 第二个现象： 有重复的节点出现在执行的状态树里面了
-    ![状态树](https://static.prnasia.com/pro/gift/diguishu.png)
+<img src="https://static.prnasia.com/pro/gift/diguishu.png" width="60%" alt="状态树" title="状态树" />   
 3. [主定理（master Theorem）](https://zh.wikipedia.org/wiki/%E4%B8%BB%E5%AE%9A%E7%90%86)： 用来解决所有的递归的函数的时间复杂度
 4. 工程中主要用到的有四种：二分查找，二叉树的遍历，二维有序矩阵，归并排序；
-![master theorem](https://static.prnasia.com/pro/gift/master1.png)
+<img src="https://static.prnasia.com/pro/gift/master1.png" width="60%" alt="master theorem" title="master theorem" />   
     - 二叉树遍历：前序，中序，后序时间复杂度是多少？
         -  为`O(n)`,N代表二叉树里面的树的节点总数；不管是前序中序后序，在遍历二叉树时，每个节点访问一次且仅访问一次
     - 图的遍历： 时间复杂度是多少？
