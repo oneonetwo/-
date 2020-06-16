@@ -68,7 +68,7 @@ function maxArea(arr){
 >> 1. 暴力，基本情况，数学归纳法，找出最近的重复的子问题；斐波拉契数列
 ```javascript
 function climbStairs(n){
-	if(n<2) return n;
+    if(n<2) return n;
 	let s1 = 1,s2=2;
 	for(let i=3;i<n;i++){
 		let temp = s1+s2;
@@ -96,7 +96,7 @@ function climbStairs(n){
 >> 3. 双指针，左右下表往中间推进。
 ```javascript
 function threesum(nums){
-	let len = nums.length,res=[];
+    let len = nums.length,res=[];
 	for(let i=0;i<len-2;i++){
 		for(let j=i+1;j<len-1;j++){
 			for(let k=j+1;k<len;k++){
