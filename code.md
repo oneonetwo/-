@@ -35,21 +35,20 @@ function maxArea(arr){
             let height = arr[i]>arr[j]?arr[j]:arr[i];
             let area = height*(j-i);
 			max = max>area?max:area;
-		}
-	}
+        }
+    }
     return max;
 }
 
 //双指针
 function maxArea(arr){
-	let max = 0;
-	for(let i=0,j=arr.length-1;i<j;){
-		let height = arr[i]>arr[j]?arr[j--]:arr[i++];
-		max = max>height*(j-i)?max:height*(j-i);
-	}
-	return max;
+    let max = 0;
+    for(let i=0,j=arr.length-1;i<j;){
+        let height = arr[i]>arr[j]?arr[j--]:arr[i++];
+	    max = max>height*(j-i)?max:height*(j-i);
+    }
+    return max;
 }
-
 ```
 ### 3. 70. 爬楼梯
 > 链接： https://leetcode-cn.com/problems/climbing-stairs/  
@@ -68,13 +67,13 @@ function maxArea(arr){
 ```javascript
 function climbStairs(n){
     if(n<2) return n;
-	let s1 = 1,s2=2;
-	for(let i=3;i<n;i++){
-		let temp = s1+s2;
-		s1 = s2;
-		s2 = temp;
-	}
-	return s2;
+    let s1 = 1,s2=2;
+    for(let i=3;i<n;i++){
+	    let temp = s1+s2;
+	    s1 = s2;
+	    s2 = temp;
+    }
+    return s2;
 }
 ```
 ### 4. 15. 三数之和
@@ -96,15 +95,15 @@ function climbStairs(n){
 ```javascript
 function threesum(nums){
     let len = nums.length,res=[];
-	for(let i=0;i<len-2;i++){
-		for(let j=i+1;j<len-1;j++){
-			for(let k=j+1;k<len;k++){
-				if(nums[i]+nums[j]+nums[k] == 0){
-					res[res.length] = [nums[i],nums[j],nums[k]]
-				}
-			}
-		}
-	}
-	return res;
+    for(let i=0;i<len-2;i++){
+	    for(let j=i+1;j<len-1;j++){
+		    for(let k=j+1;k<len;k++){
+			    if(nums[i]+nums[j]+nums[k] == 0){
+				    res[res.length] = [nums[i],nums[j],nums[k]]
+			    }
+		    }
+	    }
+    }
+    return res;
 }
 ```
