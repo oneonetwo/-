@@ -3,8 +3,6 @@
 > 给定一个数组 nums，编写一个函数将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序。
 > 示例:
 >> `输入: [0,1,0,3,12]`  `输出: [1,3,12,0,0]`
-	
-
 ```javascript	
 function moveZeroes(nums){
     let curIndex = 0;
@@ -70,8 +68,14 @@ function maxArea(arr){
 > 解题
 >> 1. 暴力，基本情况，数学归纳法，找出最近的重复的子问题
 ```javascript
-function climbStairs(self, n){
+function climbStairs(n){
 	if(n<2) return n;
-	return argument.callee(self, (n-1)+self);
+	let s1 = 1,s2=2;
+	for(let i=3;i<n;i++){
+		let temp = s1+s2;
+		s1 = s2;
+		s2 = temp;
+	}
+	return s2;
 }
 ```
