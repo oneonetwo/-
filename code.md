@@ -29,15 +29,15 @@ function moveZeroes(nums){
 ```javascript
 //暴力求解 O(n^2)
 function maxArea(arr){
-	let max = 0;
-	for(let i=0;i<arr.length-1;i++){
-		for(let j=i+1;j<arr.length;j++){
-			let height = arr[i]>arr[j]?arr[j]:arr[i];
-			let area = height*(j-i);
+    let max = 0;
+    for(let i=0;i<arr.length-1;i++){
+        for(let j=i+1;j<arr.length;j++){
+            let height = arr[i]>arr[j]?arr[j]:arr[i];
+            let area = height*(j-i);
 			max = max>area?max:area;
 		}
 	}
-	return max;
+    return max;
 }
 
 //双指针
@@ -51,7 +51,6 @@ function maxArea(arr){
 }
 
 ```
-
 ### 3. 70. 爬楼梯
 > 链接： https://leetcode-cn.com/problems/climbing-stairs/  
 > 描述：假设你正在爬楼梯。需要 n 阶你才能到达楼顶。每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？  
