@@ -66,7 +66,7 @@ function maxArea(arr){
 3.  2 阶 + 1 阶
 ```
 > 解题
->> 1. 暴力，基本情况，数学归纳法，找出最近的重复的子问题
+>> 1. 暴力，基本情况，数学归纳法，找出最近的重复的子问题；斐波拉契数列
 ```javascript
 function climbStairs(n){
 	if(n<2) return n;
