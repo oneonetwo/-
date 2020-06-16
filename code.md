@@ -78,3 +78,34 @@ function climbStairs(n){
 	return s2;
 }
 ```
+### 4. 15. 三数之和
+> 链接：https://leetcode-cn.com/problems/3sum/
+> 描述：给你一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？请你找出所有满足条件且不重复的三元组。  
+> 示例：
+```
+给定数组 nums = [-1, 0, 1, 2, -1, -4]，
+满足要求的三元组集合为：
+[
+  [-1, 0, 1],
+  [-1, -1, 2]
+]
+```
+> 解题
+>> 1. 暴力，三层循环 O(n^3);
+>> 2. hash表来记录，O(n^2);
+>> 3. 双指针，左右下表往中间推进。
+```javascript
+function threesum(nums){
+	let len = nums.length,res=[];
+	for(let i=0;i<len-2;i++){
+		for(let j=i+1;j<len-1;j++){
+			for(let k=j+1;k<len;k++){
+				if(nums[i]+nums[j]+nums[k] == 0){
+					res[res.length] = [nums[i],nums[j],nums[k]]
+				}
+			}
+		}
+	}
+	return res;
+}
+```
