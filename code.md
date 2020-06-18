@@ -108,34 +108,43 @@ function threesum(nums){
 }
 
 //排序+双指针
-function threesum(nums){
-    let len = nums.length,
+
+var threeSum = function(nums) {
+let len = nums.length,
         res = [];
+        nums.sort((a,b)=>a-b);
     for(let k=0;k<len;k++){
-		if(nums[k]>0){
-			break;
-		}
-		if(k>0&&nums[k]==nums[k-1]){
-			continue;
-		}
-		for(let i=k+1,j=len-1;i<j;){
-			let s = nums[k]+nums[i]+nums[j];
-			if(s>0){
-				j-=1;
-				while(i<j&&nums[j]==nums[j-1]){
-					j-=1;
-				}
-			}else if(s<0){
-					i+=1;
-				while(i<j&&nums[i]==nums[i+1]){
-					i+=1;
-				}
-			}else{
-				res[res.length] = [nums[k],nums[j],nums[i]];
-				i+=1;
-				j-=1;
-			}
-		}
+            if(nums[k]>0){
+                break;
+            }
+            if(k>0&&nums[k]==nums[k-1]){
+                continue;
+            }
+            for(let i=k+1,j=len-1;i<j;){
+                let s = nums[k]+nums[i]+nums[j];
+                if(s>0){
+                    j-=1;
+                    while(i<j&&nums[j]==nums[j+1]){
+                        j-=1;
+                    }
+                }else if(s<0){
+                        i+=1;
+                    while(i<j&&nums[i]==nums[i-1]){
+                        i+=1;
+                    }
+                }else{
+                    res[res.length] = [nums[k],nums[j],nums[i]];
+                    i+=1;
+                    j-=1;
+                    while(i<j&&nums[j]==nums[j+1]){
+                        j-=1;
+                    }
+                    while(i<j&&nums[i]==nums[i-1]){
+                        i+=1;
+                    }
+                }
+            }
     }
-}
+    return res;
+};
 ```
