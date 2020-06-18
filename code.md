@@ -91,7 +91,7 @@ function climbStairs(n){
 > 解题
 >> 1. 暴力，三层循环 O(n^3);
 >> 2. hash表来记录，O(n^2);
->> 3. 双指针，左右下表往中间推进。
+>> 3. 排序+双指针，左右下表往中间推进。
 ```javascript
 function threesum(nums){
     let len = nums.length,res=[];
@@ -105,5 +105,37 @@ function threesum(nums){
         }
     }
     return res;
+}
+
+//排序+双指针
+function threesum(nums){
+    let len = nums.length,
+        res = [];
+    for(let k=0;k<len;k++){
+		if(nums[k]>0){
+			break;
+		}
+		if(k>0&&nums[k]==nums[k-1]){
+			continue;
+		}
+		for(let i=k+1,j=len-1;i<j;){
+			let s = nums[k]+nums[i]+nums[j];
+			if(s>0){
+				j-=1;
+				while(i<j&&nums[j]==nums[j-1]){
+					j-=1;
+				}
+			}else if(s<0){
+					i+=1;
+				while(i<j&&nums[i]==nums[i+1]){
+					i+=1;
+				}
+			}else{
+				res[res.length] = [nums[k],nums[j],nums[i]];
+				i+=1;
+				j-=1;
+			}
+		}
+    }
 }
 ```
