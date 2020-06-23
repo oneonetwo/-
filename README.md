@@ -19,6 +19,7 @@
 3. IDE自动补全
 4. Top tips for<IDE-name>
 5. [宇宙最强vscode教程](https://segmentfault.com/a/1190000017949680)
+6. vscode 毛玻璃 https://eyhn.in/vscode-vibrancy/
    
 ## 自顶向下的编程方式
 1. [clean code](https://markhneedham.com/blog/2008/09/15/clean-code-book-review/)
