@@ -149,3 +149,29 @@
         return res;
     };
 ```
+
+# Linked List
+### 5. 15. 反转链表
+1. 链接：https://leetcode-cn.com/problems/reverse-linked-list/submissions/
+2. 描述：反转一个单链表。
+3. 示例：
+    ```
+    输入: 1->2->3->4->5->NULL
+    输出: 5->4->3->2->1->NULL
+    ```
+4. 解题
+    - 1. 交换前后指针的指向，
+    ```javascript
+    var reverseList = function (head){
+        if(!head || !head.next){ return head };
+        let current = head, previous = null;
+        while(current){
+            let next = current.next;
+            current.next = previous;
+
+            previous = current;
+            current = next;
+        }
+        return previous;
+    }
+    ```
