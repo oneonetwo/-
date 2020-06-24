@@ -161,8 +161,10 @@
     输出: 5->4->3->2->1->NULL
     ```
 4. 解题
-    - 1. 交换前后指针的指向，
+    - 1. 交换前后指针的指向;
+    - 2. 递归，思路跟方法1一样
     ```javascript
+    //1. while
     var reverseList = function (head){
         if(!head || !head.next){ return head };
         let current = head, previous = null;
@@ -174,5 +176,18 @@
             current = next;
         }
         return previous;
+    }
+    
+    //递归
+    var reverseList = function (head){
+        if(!head || !head.next){ return head};
+        return reverse(head, null);
+    }
+    var reverse = function(current, previous){
+        if(!current) return previous;
+        let next = current.next;
+        current.next = previous;
+
+        return reverse(next, current)
     }
     ```
