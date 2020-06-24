@@ -152,7 +152,7 @@
     
     
 # Linked List
-### 5. 15. 反转链表
+### 1. 15. 反转链表
 1. 链接：https://leetcode-cn.com/problems/reverse-linked-list/submissions/
 2. 描述：反转一个单链表。
 3. 示例：
