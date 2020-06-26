@@ -3,7 +3,7 @@
 1. 给定一个数组 nums，编写一个函数将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序。
 2. 示例:
     - `输入: [0,1,0,3,12]`  `输出: [1,3,12,0,0]`
-    ```javascript	
+    ```javascript   
     function moveZeroes(nums){
         let curIndex = 0;
         for(let i=0;i<nums.length;i++){
@@ -190,4 +190,35 @@
 
         return reverse(next, current)
     }
+    ```
+### 2. 24. 两两交换链表中的节点
+1. 链接：https://leetcode.com/problems/swap-nodes-in-pairs
+2. 描述：给定一个链表，两两交换其中相邻的节点，并返回交换后的链表。
+        你不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。
+3. 示例：
+    ```
+    给定 1->2->3->4, 你应该返回 2->1->4->3.
+    ```
+4. 解题
+    1. 尾递归
+    ```javascript
+    function swapPris(list, prev){
+        if(!list||!list.next){ return list }
+        //prev为null，那么是头节点
+        if(!prev){
+            var current = list;
+            list = current.next;
+        }else{
+            var current = prev.next;
+            prev.next = current.next;
+        }
+        let next = current.next,
+            last = next.next;
+        next.next = current;
+        current.next = last;
+        if(!last){ return list };
+        return swapPris(list, current);
+    }
+    var list = {val:1,next:{val:2,next:{val:3,next:{val:4,next:null}}}}
+    swapPris(list, null);
     ```
