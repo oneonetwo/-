@@ -291,7 +291,7 @@
     解释：链表中有一个环，其尾部连接到第一个节点。
     ```
 4. 解题
-    1. 快慢指针
+    2. 快慢指针
         - 时间复杂度：O(n) 空间复杂度o(1)
         - 链表开始到环起始点的位置，等于n倍的相遇点到环起始点的位置。
     ```javascript
@@ -312,5 +312,36 @@
             }
         }
         return null;
+    }
+    ```
+### 4. 142. 环形链表 II
+1. 链接：https://leetcode-cn.com/problems/reverse-nodes-in-k-group
+2. 描述：给你一个链表，每 k 个节点一组进行翻转，请你返回翻转后的链表。
+        k 是一个正整数，它的值小于或等于链表的长度。
+        如果节点总数不是 k 的整数倍，那么请将最后剩余的节点保持原有顺序。
+3. 示例：
+    ```
+    //示例1
+    给你这个链表：1->2->3->4->5
+    当 k = 2 时，应当返回: 2->1->4->3->5
+    当 k = 3 时，应当返回: 3->2->1->4->5
+    ```
+4. 解题
+    1. 时间复杂度：O(n) 空间复杂度o(1)
+    ```javascript
+    var reverseKGroup = function(head, k){
+        let tail = head;
+        for(let i = 0;i<k;i++){
+            if(!tail) return head;
+            if(i == k-1){
+                var pretail = tail;
+            }
+            tail = tail.next;
+        }
+        //交换两个位置
+        let next = head.next;
+        head.next = tail.next;
+        pretail.next = head;
+        tail.next = next;
     }
     ```
