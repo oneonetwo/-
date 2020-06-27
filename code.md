@@ -262,6 +262,17 @@
         - 开启循环，p1 每次推进 1 个节点，p2 每次推进 2 个节点，不断比较它们指向的节点
         - 如果出现相同，说明有环，如果不同，继续循环
     ```javascript
-    
-    
+    function hasCycle(head){
+        let fast = head,slow=head;
+        while(fast){
+            if(!fast.next){ return false;}
+            fast = fast.next.next;
+            slow = slow.next;
+            if(fast === slow){
+                return true;
+            }
+
+        }
+        return false;
+    }
     ```
