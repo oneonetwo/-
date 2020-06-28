@@ -375,3 +375,18 @@ var removeDuplicates = function(nums){
     return j;
 }
 ```
+### 2. 189. 旋转数组
+1. 说明：给定一个数组，将数组中的元素向右移动 k 个位置，其中 k 是非负数。
+2. 题解：下解法是错误的先记录下
+```javascript
+var rotate = function(nums, k) {
+    let i=0,len=nums.length,mid=0;
+    while(i+k<len){
+        let temp = nums[len-k+i];    
+        nums[len-k+i] = nums[i];        
+        nums[i++] = temp;
+        console.log(nums);
+    }
+    return nums;
+};
+```
