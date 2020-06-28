@@ -390,3 +390,29 @@ var rotate = function(nums, k) {
     return nums;
 };
 ```
+### 2. 21. 合并两个有序链表
+1. 说明：将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 
+2. 题解：这道题可以使用递归实现，新链表也不需要构造新节点，我们下面列举递归三个要素
+        终止条件：两条链表分别名为 l1 和 l2，当 l1 为空或 l2 为空时结束
+        返回值：每一层调用都返回排序好的链表头
+        本级递归内容：如果 l1 的 val 值更小，则将 l1.next 与排序好的链表头相接，l2 同理
+        O(m+n)O(m+n)，mm 为 l1的长度，nn 为 l2 的长度
+
+```javascript
+var mergeTwoLists = function(l1,l2){
+    if(!l1){
+        return l2
+    }else if(!l2){
+        return l1;
+    }
+    if(l1.val<l2.val){
+        let next = l1.next;
+        l1.next = mergeTwoLists(next,l2);
+        return l1;
+    }else{
+        let next = l2.next;
+        l2.next = mergeTwoLists(l1,next);
+       return l2;
+    }
+}
+```
