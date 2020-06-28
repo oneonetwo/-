@@ -330,18 +330,32 @@
     1. 时间复杂度：O(n) 空间复杂度o(1)
     ```javascript
     var reverseKGroup = function(head, k){
+        if(k<=1) return head;
         let tail = head;
-        for(let i = 0;i<k;i++){
+        for(let i = 1;i<k;i++){
             if(!tail) return head;
             if(i == k-1){
-                var pretail = tail;
+                var pretail = tail;            
             }
             tail = tail.next;
+            if(!tail) return head;
         }
         //交换两个位置
-        let next = head.next;
-        head.next = tail.next;
-        pretail.next = head;
-        tail.next = next;
+        let newHead = reverse(head, pretail);
+        head.next = reverseKGroup(head.next, k);
+        return newHead;
     }
+    function reverse(head, pretail){
+        let headnext = head.next,
+            tail = pretail.next;
+        head.next = tail.next;
+        if(head == pretail){
+            tail.next = head;
+        }else{
+            tail.next = headnext;
+            pretail.next = head;
+        }
+        return tail;    
+    }
+
     ```
