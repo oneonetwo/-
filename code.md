@@ -416,3 +416,33 @@ var mergeTwoLists = function(l1,l2){
     }
 }
 ```
+### 3. 88. 合并两个有序数组
+1. 说明：给你两个有序整数数组 nums1 和 nums2，请你将 nums2 合并到 nums1 中，使 nums1 成为一个有序数组。
+2. 题解：双指针
+
+```javascript
+//分配额外的空间
+var merge = function(nums1, m, nums2, n){
+    let newArr = [];
+    while(nums1.length&&nums2.length){
+        if(nums1[0]<nums2[0]){
+            newArr.push(nums1.shift());
+        }else{
+            newArr.push(nums2.shift());
+        }
+    }
+    return newArr.concat(nums1, nums2);
+}
+//不分配空间
+var merge = function(nums1,m,nums2,n){
+    let len = m+n-1;
+    while(n>0){
+        if(nums1[m-1]>nums2[n-1]){
+            nums1[len--] = nums1[--m] 
+        }else{
+            nums1[len--] = nums2[--n]
+        }
+    }
+    return nums1;
+}
+```
