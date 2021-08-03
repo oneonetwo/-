@@ -1,3 +1,4 @@
+//并查集
 var numIslands = function(grid) {
     if(!grid || grid.length==0) return 0;
     //方向数组
